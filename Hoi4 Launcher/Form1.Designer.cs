@@ -34,6 +34,7 @@
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.list_dlc = new System.Windows.Forms.CheckedListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.button2 = new System.Windows.Forms.Button();
 			this.list_mods = new System.Windows.Forms.CheckedListBox();
 			this.categoriesBox = new System.Windows.Forms.ComboBox();
 			this.label_category = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
 			this.toggle_debug = new System.Windows.Forms.CheckBox();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
 			this.textBox1 = new System.Windows.Forms.RichTextBox();
-			this.button1 = new System.Windows.Forms.Button();
 			this.closebutton = new System.Windows.Forms.Button();
 			this.userControl11 = new ImgButton.UserControl1();
 			this.label_version = new System.Windows.Forms.Label();
@@ -103,6 +103,7 @@
 			// 
 			// tabPage3
 			// 
+			this.tabPage3.Controls.Add(this.button2);
 			this.tabPage3.Controls.Add(this.list_mods);
 			this.tabPage3.Controls.Add(this.categoriesBox);
 			this.tabPage3.Controls.Add(this.label_category);
@@ -113,6 +114,16 @@
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "Mods";
 			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(412, 3);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(118, 23);
+			this.button2.TabIndex = 5;
+			this.button2.Text = "Update Steam Mods";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// list_mods
 			// 
@@ -128,16 +139,16 @@
 			// categoriesBox
 			// 
 			this.categoriesBox.FormattingEnabled = true;
-			this.categoriesBox.Location = new System.Drawing.Point(61, 10);
+			this.categoriesBox.Location = new System.Drawing.Point(61, 5);
 			this.categoriesBox.Name = "categoriesBox";
-			this.categoriesBox.Size = new System.Drawing.Size(385, 21);
+			this.categoriesBox.Size = new System.Drawing.Size(218, 21);
 			this.categoriesBox.Sorted = true;
 			this.categoriesBox.TabIndex = 3;
 			// 
 			// label_category
 			// 
 			this.label_category.AutoSize = true;
-			this.label_category.Location = new System.Drawing.Point(3, 12);
+			this.label_category.Location = new System.Drawing.Point(3, 10);
 			this.label_category.Name = "label_category";
 			this.label_category.Size = new System.Drawing.Size(52, 13);
 			this.label_category.TabIndex = 2;
@@ -146,7 +157,7 @@
 			// label_mods
 			// 
 			this.label_mods.AutoSize = true;
-			this.label_mods.Location = new System.Drawing.Point(452, 13);
+			this.label_mods.Location = new System.Drawing.Point(285, 11);
 			this.label_mods.Name = "label_mods";
 			this.label_mods.Size = new System.Drawing.Size(36, 13);
 			this.label_mods.TabIndex = 1;
@@ -194,24 +205,6 @@
 			this.textBox1.TabIndex = 1;
 			this.textBox1.Text = "";
 			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.Color.Transparent;
-			this.button1.BackgroundImage = global::Hoi4_Launcher.Properties.Resources.play;
-			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.ForeColor = System.Drawing.Color.Transparent;
-			this.button1.Location = new System.Drawing.Point(12, 477);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(411, 79);
-			this.button1.TabIndex = 6;
-			this.button1.Text = "Update all enabled Mods";
-			this.button1.UseMnemonic = false;
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
 			// closebutton
 			// 
 			this.closebutton.BackColor = System.Drawing.Color.Transparent;
@@ -233,7 +226,7 @@
 			this.userControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.userControl11.BackColor = System.Drawing.Color.Transparent;
 			this.userControl11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userControl11.BackgroundImage")));
-			this.userControl11.Location = new System.Drawing.Point(577, 450);
+			this.userControl11.Location = new System.Drawing.Point(577, 477);
 			this.userControl11.Name = "userControl11";
 			this.userControl11.Size = new System.Drawing.Size(411, 79);
 			this.userControl11.TabIndex = 4;
@@ -254,7 +247,6 @@
 			// 
 			// Form1
 			// 
-			this.AcceptButton = this.button1;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -262,7 +254,6 @@
 			this.ClientSize = new System.Drawing.Size(1000, 598);
 			this.Controls.Add(this.label_version);
 			this.Controls.Add(this.closebutton);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.userControl11);
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -295,11 +286,11 @@
         private System.Windows.Forms.RichTextBox textBox1;
         private System.Windows.Forms.CheckedListBox list_mods;
         private System.Windows.Forms.CheckedListBox list_dlc;
-        private System.Windows.Forms.Button button1;
         private ImgButton.UserControl1 userControl11;
 		private System.Windows.Forms.Button closebutton;
 		private System.Windows.Forms.CheckBox toggle_debug;
 		private System.Windows.Forms.Label label_version;
+		private System.Windows.Forms.Button button2;
 	}
 }
 

@@ -383,6 +383,30 @@ namespace Hoi4_Launcher
 		{
             Close();
 		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            var mods = load_mods_info();
+            var enabled_mods = new List<string>();
+
+            foreach (var mod in mods)
+            {
+                if (list_mods.CheckedItems.Contains(mod.displayName))
+                {
+                    if (mod.displayName != null)
+                        if (!string.IsNullOrEmpty(mod.remote_fileid))
+                        {
+                            PublishedFileId_t r = (PublishedFileId_t)ulong.Parse(mod.remote_fileid);
+                            Logger("Updated " + mod.displayName + " (" + mod.remote_fileid + ")");
+                            //Logger(enabled_mods.remote_fileid); 
+                            bool ret = SteamUGC.DownloadItem(r, true);
+                        }
+                }
+                //uint nSubscriptions = SteamUGC.GetNumSubscribedItems();
+                // UInt64 r = Convert.ToUInt64(mod.remote_fileid);
+                //UInt64 m_PublishedFileId = Convert.ToUInt64(mod.remote_fileid);
+            }
+        }
 	}
 }
     public static class ISynchronizeInvokeExtensions
