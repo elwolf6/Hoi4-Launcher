@@ -21,6 +21,7 @@ using Timer = System.Timers.Timer;
 using Steamworks;
 namespace Hoi4_Launcher
 {
+
     public partial class Form1 : Form
     {
         private static string ParadoxFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Paradox Interactive");
@@ -36,15 +37,17 @@ namespace Hoi4_Launcher
 
         Timer updateUI = new Timer(100);
         static launchSettings data = new launchSettings();
-        public Form1(string[] args)
+
+		public Form1(string[] args)
         {
             foreach (var arg in args)
             {
                 this.args += arg + " "; 
             }
             InitializeComponent();
+            MouseMove += new MouseEventHandler(Form1_MouseMove);
+            MouseDown += new MouseEventHandler(Form1_MouseDown);
         }
-
         public launchSettings load_items()
         {
             launchSettings obj;
@@ -279,6 +282,20 @@ namespace Hoi4_Launcher
             updateUI.Start();
         }
 
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+		{
+            if(e.Button == MouseButtons.Left)
+			{
+                Left += e.X - lastPoint.X;
+                Top += e.Y - lastPoint.Y;
+			}
+		}
+        Point lastPoint;
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+		{
+            lastPoint = new Point(e.X, e.Y);
+        }
+
         private void updateUI_DoWork(object sender, ElapsedEventArgs e)
         {
             try
@@ -357,9 +374,14 @@ namespace Hoi4_Launcher
             }
         }
 
-		private void enable_debug_CheckedChanged(object sender, EventArgs e)
+		private void toggle_debug_CheckedChanged(object sender, EventArgs e)
 		{
             args += "--debug";
+		}
+
+		private void closebutton_Click(object sender, EventArgs e)
+		{
+            Close();
 		}
 	}
 }
