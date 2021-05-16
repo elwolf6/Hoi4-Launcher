@@ -12,5 +12,6 @@ namespace Hoi4_Launcher.Model
         public string path { get; set; }
 
         public bool _3rdparty { get ; set; }
+        public string text { get; set; }
     }
 }

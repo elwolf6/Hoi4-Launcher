@@ -45,6 +45,12 @@ namespace ImgButton
             get { return pictureBox1.Visible; }
             set { pictureBox1.Visible = value; }
         }
+
+        public string text
+		{
+			get { return label1.Text; }
+            set { label1.Text = value; }
+		}
     }
     
 }
